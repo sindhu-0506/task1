@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+
+
+.search-container {
+  margin-top: 10px;
+margin-bottom:10px;
+}
+
+input[type=text] {
+  padding: 10px;
+  width: 200px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color:black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+
+       /* Dropdown Button */
+.dropbtn {
+  background-color:white;
+  color: black;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+width:15%;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color:#8FBC8F;
+}
+
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:#8FBC8F;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .recipe {
+            margin-bottom: 20px;
+        }
+        .recipe img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .toggle {
+            cursor: pointer;
+            color: #007bff;
+        }
+        .hidden {
+            display: none;
+        }
+
+</style>
+</head>
+<body>
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search Recipe...">
+  <button onclick="searchFunction()">Search</button>
+</div>
+
+<div id="searchResults"></div>
+<div class="dropdown">
+  <button class="dropbtn">Indian</button>
+ <button class="dropbtn">chinese</button>
+  <button class="dropbtn">Italian</button>
+  <button class="dropbtn">japanese</button>
+ <button class="dropbtn">Turkish</button>
+  <button class="dropbtn">European</button>
+  </div>
+
+
+ <div class="container">
+        <h1>Delicious Recipes</h1>
+        
+        <div class="recipe">
+            <h2>Spaghetti Carbonara</h2>
+            <img src="C:\task\i1.jpg" alt="Spaghetti Carbonara">
+            <p class="toggle">Click to view recipe</p>
+            <p class="hidden">Bring a large pot of salted water to a boil. Cook spaghetti according to package instructions until al dente. Drain and set aside.
+                In a large skillet, heat olive oil over medium heat. Add minced garlic and red pepper flakes. Cook for about 1 minute until garlic is fragrant.
+                Add diced tomatoes to the skillet and simmer for about 5 minutes, stirring occasionally.
+                Stir in cooked spaghetti and chopped basil. Season with salt and pepper to taste.
+                Serve hot, topped with grated Parmesan cheese..</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Chocolate Chip Cookies</h2>
+            <img src="C:\task\i2.jpg" alt="Chocolate Chip Cookies">
+            <p class="toggle">Click to view recipe</p>
+            <p class="hidden">Preheat your oven to 350°F (175°C). Line baking sheets with parchment paper or lightly grease them.
+In a large mixing bowl, cream together the softened butter, granulated sugar, and brown sugar until light and fluffy.
+Beat in the eggs one at a time, then stir in the vanilla extract.
+In a separate bowl, whisk together the flour, baking soda, baking powder, and salt.
+Gradually add the dry ingredients to the wet ingredients, mixing until well combined.
+Fold in the chocolate chips or chopped chocolate until evenly distributed throughout the dough.
+Drop rounded tablespoons of dough onto the prepared baking sheets, spacing them a few inches apart to allow for spreading.
+Bake in the preheated oven for 10 to 12 minutes, or until the cookies are lightly golden around the edges. They may appear slightly underdone in the center, but they will continue to cook as they cool.
+Allow the cookies to cool on the baking sheets for a few minutes before transferring them to wire racks to cool completely.
+Enjoy your delicious homemade cookies .</p>
+        </div>
+        <div class="recipe">
+            <h2>Biryani</h2>
+            <img src="C:\task\i3.webp" alt="Biryani">
+            <p class="toggle">Click to view recipe</p>
+            <p class="hidden">Prepare Rice: Rinse and soak basmati rice. Cook with whole spices until partially done, then drain.
+Marinate Meat: Mix meat with yogurt, spices, and lemon juice. Marinate for 30 minutes.
+Cook Meat: Sauté onions until golden. Add marinated meat and cook until partially done.
+Layering: Alternate layers of partially cooked rice and cooked meat in a pot. Top with fried onions.
+Dum Cooking: Seal the pot and cook on low heat for 20-25 minutes until rice is fully cooked and flavors meld.
+Garnish and Serve: Fluff up the biryani, garnish with cilantro and fried onions, and serve hot with raita. Enjoy your biryani!.</p>
+</div>
+
+    </div>
+
+
+<script>
+function searchFunction() {
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('searchInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("searchResults");
+  li = ul.getElementsByTagName('li');
+
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+</script>
+
+    <script>
+        // JavaScript for toggling recipe details
+        const toggles = document.querySelectorAll('.toggle');
+
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
+<script>
+function toggleDropdown() {
+  var dropdown = document.getElementById("myDropdown");
+  dropdown.classList.toggle("show");
+}
+</script>
+
+
+</body>
+</html>
